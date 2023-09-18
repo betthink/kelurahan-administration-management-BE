@@ -16,8 +16,8 @@ $kepala_keluarga = $_POST['kepala_keluarga'];
 $status_tinggal = $_POST['status_tinggal'];
 $status_diri = $_POST['status_diri'];
 
-$query = "INSERT INTO data_penduduk VALUES (NULL,'$nama', '$nik','$no_kk',  '$tanggal_lahir', '$tempat_lahir', '$alamat','$jenis_kelamin', '$nomor_telp', '$darah', '$kepala_keluarga', '$status_tinggal', '$status_diri', NOW())";
-var_dump($query);
+$query = "INSERT INTO data_penduduk VALUES (NULL,'$nama', '$nik','$no_kk',  '$tanggal_lahir', '$tempat_lahir','$jenis_kelamin',  '$alamat','$nomor_telp', '$darah', '$kepala_keluarga', '$status_tinggal', '$status_diri', NOW())";
+// var_dump($query);
 $succes_mes = "Berhasil Melakukan Penambahan Data Penduduk";
 $failed_mes = "Gagal Melakukan Penambahan Data Penduduk";
 
