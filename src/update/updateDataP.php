@@ -20,6 +20,5 @@ $succes_mes = "Berhasil Melakukan Perubahan Data penduduk";
 $failed_mes = "Gagal Melakukan Perubahan Data penduduk";
 
 $insert = "UPDATE data_penduduk SET nama = '$nama',  nik = '$nik', tanggal_lahir = '$tanggal_lahir',  tempat_lahir = '$tempat_lahir',  alamat = '$alamat',  nomor_telp = '$nomor_telp',  darah = '$darah', kepala_keluarga = '$kepala_keluarga',  status_tinggal = '$status_tinggal',   status_diri = '$status_diri' WHERE id_penduduk = '$id_penduduk'";
-
 $updateData = new UpdateData($conn, $insert, $succes_mes, $failed_mes);
 echo $updateData->handleUpdateData();
