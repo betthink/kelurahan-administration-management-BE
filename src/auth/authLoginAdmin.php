@@ -1,7 +1,7 @@
 <?php
 require "../../config/connect.php";
 require "../utils/auth.php";
-$columns = ["id_admin", "nik", "username", "password", "role"];
+$columns = ["id_admin", "nik", "username", "password", "role", "rt", "rw"];
 $username = $_POST["username"];
 $password = $_POST["password"];
 
