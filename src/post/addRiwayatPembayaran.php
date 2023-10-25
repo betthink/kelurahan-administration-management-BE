@@ -4,15 +4,17 @@ require "../utils/postData.php";
 
 // var_dump($conn);
 
-$nama_kepala_keluarga = $_POST["nama_kepala_keluarga"];
-$tanggal_pembayaran = $_POST["tanggal_pembayaran"];
+$nama = $_POST["nama"];
+$waktu_pembayaran = $_POST["waktu_pembayaran"];
 $jumlah_pembayaran = $_POST["jumlah_pembayaran"];
 $nik = $_POST["nik"];
+$rt = $_POST["rt"];
 $metode = $_POST["metode"];
+$id_user = $_POST["id_user"];
+$verifikator = $_POST["verifikator"];
 
-$query = "INSERT INTO verifikasi_pembayaran VALUES (NULL, '$nama_kepala_keluarga','$tanggal_pembayaran' , NOW(),'$jumlah_pembayaran', '$nik', '$metode')";
-
-// var_dump($query); die;
+$query = "INSERT INTO riwayat_pembayaran VALUES (NULL, '$nama', '$nik','$metode','$verifikator','$rt','$jumlah_pembayaran','$waktu_pembayaran',NOW(),'$id_user')";
+// var_dump($query); 
 $succes_mes = "Berhasil Melakukan Penambahan Verifikasi Data";
 $failed_mes = "Gagal Melakukan Penambahan Verifikasi Data";
 
