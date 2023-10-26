@@ -1,8 +1,8 @@
 <?php
 require "../../config/connect.php";
 require "../utils/getDataJson.php";
-$columns = ["jenis_vaksin"];
-$query = "SELECT jenis_vaksin FROM data_vaksin";
+$columns = ["id_imunisasi", "wali_peserta", "tahap_vaksin", "nama_peserta"];
+$query = "SELECT * FROM pengguna_layanan_posyandu";
 
 $getData = new GetData($conn, $columns, $query);
 $data = $getData->handleFetchData();
