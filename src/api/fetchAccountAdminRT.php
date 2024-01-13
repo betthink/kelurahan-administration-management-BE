@@ -1,3 +1,4 @@
+
 <?php
 require "../../config/connect.php";
 require "../utils/getDataJson.php";
@@ -7,3 +8,4 @@ $query = "SELECT * FROM user_admin where role = 'admin'";
 $getData = new GetData($conn, $columns, $query);
 $data = $getData->handleFetchData();
 echo $data;
+

@@ -21,7 +21,7 @@ $rt = $_POST['rt'];
 $rw = $_POST['rw'];
 
 $query = "INSERT INTO data_penduduk VALUES (NULL,'$nama', '$nik','$no_kk',  '$tanggal_lahir', '$tempat_lahir','$jenis_kelamin', '$pekerjaan', '$agama', '$alamat','$nomor_telp', '$darah', '$kepala_keluarga', '$status_tinggal', '$status_diri', NOW() , '$rt', '$rw')";
-// var_dump($query);
+// var_dump($query);die;
 $succes_mes = "Berhasil Melakukan Penambahan Data Penduduk";
 $failed_mes = "Gagal Melakukan Penambahan Data Penduduk";
 
