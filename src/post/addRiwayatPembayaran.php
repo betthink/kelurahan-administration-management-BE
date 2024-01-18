@@ -11,8 +11,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $metode = $_POST["metode"];
     $verifikator = $_POST["verifikator"];
     $rt = $_POST["rt"];
-    $jumlah_pembayaran = $_POST["jumlah_pembayaran"];
+    $jumlah_transaksi = $_POST["jumlah_transaksi"];
     $waktu_pembayaran = $_POST["waktu_pembayaran"];
+    // $jenis_transaksi = $_POST["jenis_transaksi"];
     $id_user = $_POST["id_user"];
 
     // handle upload
@@ -28,14 +29,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
     // Pindahkan file ke direktori upload
     if ($file_name !== null) {
-        move_uploaded_file($file_tmp_name,
+        move_uploaded_file(
+            $file_tmp_name,
             "$subdirectory/$file_name"
         );
     }
 
     // Insert data into database
-    $query = "INSERT INTO riwayat_pembayaran VALUES (NULL, '$nama', '$nik', '$metode', '$verifikator', '$rt', '$jumlah_pembayaran', '$waktu_pembayaran', NOW(), '$id_user', '$file_name')";
-
+    $query = "INSERT INTO riwayat_pembayaran VALUES (NULL, '$nama', '$nik', '$metode', '$verifikator', '$rt', '$jumlah_transaksi', 'pemasukan', '$waktu_pembayaran', NOW(), '$id_user', '$file_name')";
+    // var_dump($query);
+    // die;
     $succes_mes = "Berhasil Melakukan Penambahan Verifikasi Data";
     $failed_mes = "Gagal Melakukan Penambahan Verifikasi Data";
 
