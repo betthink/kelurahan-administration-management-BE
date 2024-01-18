@@ -2,8 +2,9 @@
 require "../../config/connect.php";
 require "../utils/getDataJson.php";
 $rt = $_GET["rt"];
-$columns = ["id", "nama", "nik", "id_user", "rt", "status_tinggal"];
-$query = "SELECT * FROM list_pembayar_iuran inner join data_penduduk on list_pembayar_iuran.id_user = data_penduduk.id_penduduk WHERE rt = '$rt'";
+$rw = $_GET["rw"];
+$columns = ["id", "nama", "nik", "id_user", "rt", "rw", "status_tinggal", "kepala_keluarga"];
+$query = "SELECT * FROM list_pembayar_iuran inner join data_penduduk on list_pembayar_iuran.id_user = data_penduduk.id_penduduk WHERE rt = '$rt' AND rw = '$rw'";
 // var_dump($query);
 $getData = new GetData($conn, $columns, $query);
 $data = $getData->handleFetchData();
