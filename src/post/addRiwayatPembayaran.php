@@ -13,6 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $rt = $_POST["rt"];
     $jumlah_transaksi = $_POST["jumlah_transaksi"];
     $waktu_pembayaran = $_POST["waktu_pembayaran"];
+    $waktu_pembayaran_obj = new DateTime($waktu_pembayaran);
+    $formatted_waktu_pembayaran = $waktu_pembayaran_obj->format('Y-m-d');
     // $jenis_transaksi = $_POST["jenis_transaksi"];
     $id_user = $_POST["id_user"];
 
@@ -21,9 +23,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $file_name = isset($file) ?  $file["name"] : null;
     $file_tmp_name = isset($file_name) ?  $file["tmp_name"] : null;
 
-    $uploads_dir = "./upload"; // Ganti dengan direktori upload yang sesuai
+    $uploads_dir = "../upload"; // Ganti dengan direktori upload yang sesuai
     // Membuat direktori berdasarkan nama dan waktu_pembayaran
-    $subdirectory = "$uploads_dir/$nama/$waktu_pembayaran";
+    $subdirectory = "$uploads_dir/$nama/$formatted_waktu_pembayaran";
     if (!file_exists($subdirectory)) {
         mkdir($subdirectory, 0777, true);
     }
@@ -36,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     // Insert data into database
-    $query = "INSERT INTO riwayat_pembayaran VALUES (NULL, '$nama', '$nik', '$metode', '$verifikator', '$rt', '$jumlah_transaksi', 'pemasukan', '$waktu_pembayaran', NOW(), '$id_user', '$file_name')";
+    $query = "INSERT INTO riwayat_pembayaran VALUES (NULL, '$nama', '$nik', '$metode', '$verifikator', '$rt', '$jumlah_transaksi', 'pemasukan', '$formatted_waktu_pembayaran', NOW(), '$id_user', '$file_name')";
     // var_dump($query);
     // die;
     $succes_mes = "Berhasil Melakukan Penambahan Verifikasi Data";
