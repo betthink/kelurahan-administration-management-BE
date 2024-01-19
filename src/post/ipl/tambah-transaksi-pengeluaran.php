@@ -5,8 +5,9 @@ require "../../utils/postData.php";
 // var_dump($conn);
 $verifikator = $_POST['verifikator'];
 $jumlah_transaksi = $_POST['jumlah_transaksi'];
+$rt = $_POST['rt'];
 
-$query = "INSERT INTO riwayat_pembayaran (`verifikator`, `jumlah_transaksi`, `jenis_transaksi`, `waktu_pembayaran`) VALUES ('$verifikator', '$jumlah_transaksi', 'pengeluaran', NOW())";
+$query = "INSERT INTO riwayat_pembayaran (`verifikator`, `rt`, `jumlah_transaksi`, `jenis_transaksi`, `waktu_verifikasi`) VALUES ('$verifikator', '$rt','$jumlah_transaksi', 'pengeluaran', NOW())";
 
 // var_dump($query);
 // die;
