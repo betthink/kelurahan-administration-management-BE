@@ -19,11 +19,26 @@ $status_tinggal = $_POST['status_tinggal'];
 $status_diri = $_POST['status_diri'];
 $rt = $_POST['rt'];
 $rw = $_POST['rw'];
+// Cek apakah nik sudah terdaftar
+$checkNikQuery = "SELECT COUNT(*) as count FROM data_penduduk WHERE nik = '$nik'";
+$checkNikResult = mysqli_query($conn, $checkNikQuery);
+$checkNikData = mysqli_fetch_assoc($checkNikResult);
 
-$query = "INSERT INTO data_penduduk VALUES (NULL,'$nama', '$nik','$no_kk',  '$tanggal_lahir', '$tempat_lahir','$jenis_kelamin', '$pekerjaan', '$agama', '$alamat','$nomor_telp', '$darah', '$kepala_keluarga', '$status_tinggal', '$status_diri', NOW() , '$rt', '$rw' , 0)";
-// var_dump($query);die;
-$succes_mes = "Berhasil Melakukan Penambahan Data Penduduk";
-$failed_mes = "Gagal Melakukan Penambahan Data Penduduk";
+if ($checkNikData['count'] > 0) {
+    $response = array();
+    $failed_mes = "NIK sudah terdaftar";
+    $response['value'] = 2;
+    $response['message'] = $failed_mes;
+    echo json_encode($response);
+} else {
+    // Jika NIK belum terdaftar, lakukan operasi INSERT
+    $query = "INSERT INTO data_penduduk VALUES (NULL,'$nama', '$nik','$no_kk',  '$tanggal_lahir', '$tempat_lahir','$jenis_kelamin', '$pekerjaan', '$agama', '$alamat','$nomor_telp', '$darah', '$kepala_keluarga', '$status_tinggal', '$status_diri', NOW() , '$rt', '$rw' , 0)";
+    $success_mes = "Berhasil Melakukan Penambahan Data Penduduk";
+    $succes_mes = "Berhasil Melakukan Penambahan Data Penduduk";
+    $failed_mes = "Gagal Melakukan Penambahan Data Penduduk";
+    $postData = new PostData($conn, $query, $succes_mes, $failed_mes);
+    echo $postData->handlePostData();
+}
 
-$postData = new PostData($conn, $query, $succes_mes, $failed_mes);
-echo $postData->handlePostData();
+
+
