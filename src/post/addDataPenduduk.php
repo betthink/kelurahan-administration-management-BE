@@ -34,8 +34,8 @@ if ($checkNikData['count'] > 0) {
     // Jika NIK belum terdaftar, lakukan operasi INSERT
     $query = "INSERT INTO data_penduduk VALUES (NULL,'$nama', '$nik','$no_kk',  '$tanggal_lahir', '$tempat_lahir','$jenis_kelamin', '$pekerjaan', '$agama', '$alamat','$nomor_telp', '$darah', '$kepala_keluarga', '$status_tinggal', '$status_diri', NOW() , '$rt', '$rw' , 0)";
     $success_mes = "Berhasil Melakukan Penambahan Data Penduduk";
-    $succes_mes = "Berhasil Melakukan Penambahan Data Penduduk";
-    $failed_mes = "Gagal Melakukan Penambahan Data Penduduk";
+    $succes_mes = "Berhasil Melakukan registrasi penduduk";
+    $failed_mes = "Gagal Melakukan registrasi penduduk";
     $postData = new PostData($conn, $query, $succes_mes, $failed_mes);
     echo $postData->handlePostData();
 }
