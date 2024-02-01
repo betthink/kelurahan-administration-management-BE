@@ -1,7 +1,11 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-// header("Access-Control-Allow-Origin: http://localhost:3000");
-header("Access-Control-Allow-Origin: https://appfordev.com");
+// header("Access-Control-Allow-Origin: *");
+$allowed_domains = array("http://localhost:3000", "https://management-administrasi-kelurahan.vercel.app", "https://appfordev.com");
+$origin = $_SERVER['HTTP_ORIGIN'];
+
+if (in_array($origin, $allowed_domains)) {
+    header("Access-Control-Allow-Origin: " . $origin);
+}
 header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
 
 // Izinkan metode HTTP tertentu
