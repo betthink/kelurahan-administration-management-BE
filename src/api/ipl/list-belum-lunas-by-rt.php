@@ -1,7 +1,7 @@
 <?php
 
-require "../../../config/header.php";
 require "../../../config/connect.php";
+require "../../../config/header.php";
 
 // 1. Ambil semua pengguna dari tabel user
 $rt = $_GET['rt'];

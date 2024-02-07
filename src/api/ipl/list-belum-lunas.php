@@ -1,6 +1,6 @@
 <?php
-require "../../../config/header.php";
 require "../../../config/connect.php";
+require "../../../config/header.php";
 
 // 1. Ambil semua pengguna dari tabel user
 $usersQuery = "SELECT lpi.id_user, dp.nama, dp.rt 

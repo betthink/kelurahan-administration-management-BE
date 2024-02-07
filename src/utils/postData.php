@@ -1,18 +1,5 @@
 <?php
-// header("Access-Control-Allow-Origin: *");
-$allowed_domains = array("http://localhost:3000", "https://management-administrasi-kelurahan.vercel.app", "https://appfordev.com");
-$origin = $_SERVER['HTTP_ORIGIN'];
-
-if (in_array($origin, $allowed_domains)) {
-    header("Access-Control-Allow-Origin: " . $origin);
-}
-header("Access-Control-Allow-Headers: Origin, X-Requested-With, Content-Type, Accept");
-
-// Izinkan metode HTTP tertentu
-header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE");
-
-// Izinkan header kustom yang mungkin digunakan dalam permintaan Anda
-header("Access-Control-Allow-Headers: Origin, Content-Type, Accept, Authorization");
+require "../../config/header.php";
 class PostData
 {
 
